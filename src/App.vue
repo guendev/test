@@ -3,6 +3,6 @@
 <template>
   <suspense>
 <!--    <master-layout />-->
-    <div>Hello Word</div>
+    <div>Hello Word 123</div>
   </suspense>
 </template>
