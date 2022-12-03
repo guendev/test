@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ../var/www/it-square
+            cd ../var/www/test
             rm -rf .env
             git reset --hard
             git pull
@@ -55,7 +55,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           source: ".env"
-          target: "../var/www/it-square"
+          target: "../var/www/test"
 
       - name: Build the project
         uses: appleboy/ssh-action@master
@@ -65,7 +65,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ../var/www/it-square
+            cd ../var/www/test
             
             echo "Building project"
             
@@ -75,8 +75,8 @@ jobs:
             
             echo "Update nginx"
             
-            cp -fr nginx.conf /../../../etc/nginx/conf.d/it-square.conf
-            sed -i "s/%PORT%/${{ secrets.VITE_PORT }}/" /../../../etc/nginx/conf.d/it-square.conf
-            sed -i "s/%DOMAIN%/${{ secrets.VITE_DOMAIN }}/" /../../../etc/nginx/conf.d/it-square.conf
+            cp -fr nginx.conf /../../../etc/nginx/conf.d/test.conf
+            sed -i "s/%PORT%/${{ secrets.VITE_PORT }}/" /../../../etc/nginx/conf.d/test.conf
+            sed -i "s/%DOMAIN%/${{ secrets.VITE_DOMAIN }}/" /../../../etc/nginx/conf.d/test.conf
             
             nginx -s reload
