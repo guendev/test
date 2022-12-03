@@ -10,8 +10,8 @@
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "apollo:codegen": "npx apollo codegen:generate --localSchemaFile=schema.graphql --target=typescript --tagName=gql --includes=./src/apollo/smileeye/**/*.ts --globalTypesFile=__generated__/smileeyeTypes.ts",
     "apollo:download": "npx apollo client:download-schema --endpoint=https://v2-be.smileeye.edu.vn/graphql schema.graphql",
-    "restart": "pm2 restart it-square",
-    "stop": "pm2 stop it-square"
+    "restart": "pm2 restart test-uda",
+    "stop": "pm2 stop test-uda"
   },
   "dependencies": {
     "@apollo/client": "^3.6.6",
